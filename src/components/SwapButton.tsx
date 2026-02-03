@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 import { parseEther, parseUnits } from "viem";
-
-// Base USDC contract address
-const USDC_BASE_ADDRESS = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913";
 import { toast } from "sonner";
+import { USDC_BASE_ADDRESS } from "@/src/lib/contracts";
 import { publicClient } from "@/src/lib/viemClient";
 import { useWalletClient } from "wagmi";
 import confetti from "canvas-confetti";

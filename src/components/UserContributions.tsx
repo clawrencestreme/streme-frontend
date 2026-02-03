@@ -9,14 +9,13 @@ import {
   formatStakeAmount,
 } from "@/src/hooks/useStremeStakingContract";
 import { useTokenPrice } from "@/src/hooks/useTokenPrice";
+import { STREME_TOKEN_ADDRESS } from "@/src/lib/contracts";
 
 export const UserContributions = () => {
   const { isConnected } = useAccount();
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [showWithdrawModal, setShowWithdrawModal] = useState(false);
   const [withdrawing, setWithdrawing] = useState(false);
-
-  const STREME_TOKEN_ADDRESS = "0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58";
   
   // Use centralized price cache
   const { price: stremePrice } = useTokenPrice(STREME_TOKEN_ADDRESS, {

@@ -8,6 +8,7 @@ import { MiniAppTutorialModal } from "./MiniAppTutorialModal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { HowItWorksModal } from "./HowItWorksModal";
 import { useWallet } from "../hooks/useWallet";
+import { STREME_TOKEN_ADDRESS } from "@/src/lib/contracts";
 
 export function Navbar() {
   // Use new simplified wallet hook
@@ -29,7 +30,7 @@ export function Navbar() {
   // Easter egg function for logo clicking (desktop only - mini-app handling moved to app.tsx)
   const handleLogoClick = () => {
     if (!isMiniApp) {
-      router.push("/crowdfund/0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58");
+      router.push(`/crowdfund/${STREME_TOKEN_ADDRESS}`);
     }
   };
 

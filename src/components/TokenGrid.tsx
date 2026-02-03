@@ -13,6 +13,10 @@ import { useRewardCounter } from "@/src/hooks/useStreamingNumber";
 import { VERIFIED_TOKENS } from "@/src/lib/constants";
 import { memo } from "react";
 import SafeImage from "@/src/components/SafeImage";
+import { STREME_TOKEN_ADDRESS } from "@/src/lib/contracts";
+
+// BUTTHOLE token address for special crowdfund handling
+const BUTTHOLE_TOKEN_ADDRESS = "0x1c4f69f14cf754333c302246d25a48a13224118a";
 
 interface TokenGridProps {
   tokens: Token[];
@@ -358,9 +362,9 @@ export const TrendingTokenCard = ({
           <div className="flex gap-2 pt-2">
             {/* Show Crowdfund button for STREME and BUTTHOLE tokens */}
             {token.contract_address.toLowerCase() ===
-              "0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58" ||
+              STREME_TOKEN_ADDRESS.toLowerCase() ||
             token.contract_address.toLowerCase() ===
-              "0x1c4f69f14cf754333c302246d25a48a13224118a" ? (
+              BUTTHOLE_TOKEN_ADDRESS.toLowerCase() ? (
               <>
                 <button className="btn btn-sm btn-outline btn-primary flex-1">
                   Trade
@@ -371,9 +375,9 @@ export const TrendingTokenCard = ({
                     e.stopPropagation();
                     const crowdfundUrl =
                       token.contract_address.toLowerCase() ===
-                      "0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58"
-                        ? "/crowdfund/0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58"
-                        : "/crowdfund/0x1c4f69f14cf754333c302246d25a48a13224118a";
+                      STREME_TOKEN_ADDRESS.toLowerCase()
+                        ? `/crowdfund/${STREME_TOKEN_ADDRESS}`
+                        : `/crowdfund/${BUTTHOLE_TOKEN_ADDRESS}`;
                     router.push(crowdfundUrl);
                   }}
                   className="btn btn-sm btn-outline btn-accent flex-1"

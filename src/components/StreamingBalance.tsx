@@ -6,9 +6,7 @@ import { useTokenPrice } from "@/src/hooks/useTokenPrice";
 import { useUnifiedWallet } from "@/src/hooks/useUnifiedWallet";
 import { publicClient } from "@/src/lib/viemClient";
 import { formatUnits } from "viem";
-
-const STREME_TOKEN_ADDRESS = "0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58";
-const STREME_STAKING_POOL = "0xa040a8564c433970d7919c441104b1d25b9eaa1c";
+import { STREME_TOKEN_ADDRESS, STREME_STAKING_POOL } from "@/src/lib/contracts";
 
 interface StreamingBalanceProps {
   className?: string;

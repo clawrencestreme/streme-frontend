@@ -10,6 +10,7 @@ import { formatUnits } from "viem";
 import { publicClient } from "../lib/viemClient";
 import { useStreamingNumber } from "../hooks/useStreamingNumber";
 import { ConnectPoolButton } from "./ConnectPoolButton";
+import { STREME_TOKEN_ADDRESS, STREME_STAKING_POOL } from "@/src/lib/contracts";
 
 interface CheckinSuccessModalProps {
   isOpen: boolean;
@@ -47,10 +48,6 @@ CheckinSuccessModalProps) {
   // Get effective connection state and address
   const effectiveIsConnected = isMiniAppView ? fcIsConnected : wagmiIsConnected;
   const effectiveAddress = isMiniAppView ? fcAddress : wagmiAddress;
-
-  // STREME token address
-  const STREME_TOKEN_ADDRESS = "0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58";
-  const STREME_STAKING_POOL = "0xa040a8564c433970d7919c441104b1d25b9eaa1c";
 
   // Use streaming number hook for animated balance
   const flowRatePerSecond = Number(flowRate) / 86400; // Convert daily rate to per-second
@@ -267,7 +264,7 @@ ${shareUrl}`;
 
   const handleBuyStreme = () => {
     // Navigate to the STREME token page
-    window.location.href = "/token/0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58";
+    window.location.href = `/token/${STREME_TOKEN_ADDRESS}`;
   };
 
   const handleConnectPoolSuccess = async () => {

@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Copy, X, Check } from "lucide-react";
 import { toast } from "sonner";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { STREME_TOKEN_ADDRESS } from "@/src/lib/contracts";
 
 interface WalletProfileModalProps {
   isOpen: boolean;
@@ -20,9 +21,6 @@ interface WalletProfileModalProps {
   } | null;
 }
 
-// STREME token contract details from the provided data
-const STREME_TOKEN_ADDRESS =
-  "0x3b3cd21242ba44e9865b066e5ef5d1cc1030cc58" as const;
 const STREME_DECIMALS = 18;
 
 const erc20ABI = [
